@@ -72,16 +72,13 @@ Ensure Python is installed on the system. The project is developed using the Pyt
 - **Boto3**: For interacting with AWS services such as S3.
 - **Grobid**: For additional PDF text extraction capabilities.
 
-### 3. Web Browser Driver
-Selenium requires a web browser driver (e.g., ChromeDriver, GeckoDriver) compatible with the browser version installed on the system.
-
-### 4. Snowflake Account
+### 3. Snowflake Account
 Access to a Snowflake account is necessary for database operations. This includes creating databases, tables, and establishing connections.
 
-### 5. AWS Account
+### 4. AWS Account
 Access to an AWS account is required for utilizing AWS S3 storage services.
 
-### 6. Visual Studio Code
+### 5. Visual Studio Code
 Integrated Development Environment (IDE) or text editor for writing and running Python scripts.
 
  
