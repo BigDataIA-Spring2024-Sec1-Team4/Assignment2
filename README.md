@@ -166,16 +166,17 @@ To run the application locally from scratch, follow these steps:
      source venv/bin/activate
      ```
      
-4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server.
+4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server. (Run this in a separate terminal)
 
    ```bash
+    cd PDF_Extraction
     git clone https://github.com/kermitt2/grobid_client_python
     cd grobid_client_python
     python3 setup.py install
     docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
    ```
 
-5. **Run the Notebook Script**: Execute the `scheduler.py` python script to run the application.
+5. **Run the Notebook Script**: Execute the `scheduler.py` python script to run the application. (Remember to add your .env files)
 
    ```bash
    cd PDF_Extraction
