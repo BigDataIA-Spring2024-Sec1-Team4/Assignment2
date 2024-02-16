@@ -1,12 +1,7 @@
 
-## Project Title
+## Assignment2
 Development of a Structured Database and Text Extraction System for Finance Professional Development Resources
  
-
- 
-
-
-
 
 
 ## Problem Statement
@@ -47,9 +42,8 @@ The project aims to organize and streamline access to finance professional devel
 [![Snowflake](https://img.shields.io/badge/Snowflake-387BC3?style=for-the-badge&logo=snowflake&logoColor=light)](https://www.snowflake.com/)
 [![Amazon S3](https://img.shields.io/badge/Amazon%20S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white)](https://aws.amazon.com/s3/)
 [![Beautiful Soup](https://img.shields.io/badge/Beautiful%20Soup-59666C?style=for-the-badge&logo=python&logoColor=blue)](https://www.crummy.com/software/BeautifulSoup/)
-[![Selenium](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=selenium&logoColor=white)](https://www.selenium.dev/)
 [![Grobid](https://img.shields.io/badge/Grobid-007396?style=for-the-badge&logo=java&logoColor=white)](https://github.com/kermitt2/grobid)
-[![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=apache-airflow&logoColor=white)](https://airflow.apache.org/)
+
 
 
 
@@ -60,6 +54,7 @@ The project aims to organize and streamline access to finance professional devel
 (https://www.cfainstitute.org/membership/professional-development/refresher-readings)
 
 2. PDFs Provided
+(https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment2/tree/main/PDF_Extraction/Archive_2)
 
 ##  Prerequisites 
 
@@ -70,7 +65,7 @@ Prerequisites of Software for the Project:
 Ensure Python is installed on the system. The project is developed using the Python programming language.
 
 ### 2. Python Libraries
-- **Selenium**: For web scraping and interacting with dynamic elements on websites.
+- **Requests_HTML**: For web scraping and interacting with dynamic elements on websites.
 - **Beautiful Soup**: For parsing HTML content and extracting relevant information from web pages.
 - **PyPDF2**: For extracting text from PDF files.
 - **SQLAlchemy**: For interacting with databases using Python.
@@ -90,30 +85,59 @@ Access to an AWS account is required for utilizing AWS S3 storage services.
 Integrated Development Environment (IDE) or text editor for writing and running Python scripts.
 
  
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
-
- 
 ## Project Structure
 
+```
+Assignment2
+├── Cloud_Integration
+│   ├── Snowflake_Transfer_Metadata.ipynb
+│   ├── Step4_Cloud_Integration.ipynb
+│   └── requirements.txt
+├── Database_Upload
+│   ├── Step3_Database_Upload.ipynb
+│   ├── requirements.txt
+│   └── snowflake_sqlalchemy_output.ipynb
+├── Diagrams
+│   ├── Diagrams.py
+│   └── workflow_diagram.png
+├── PDF_Extraction
+│   ├── Archive_2
+│   │   ├── 2024-l1-topics-combined-2.pdf
+│   │   ├── 2024-l2-topics-combined-2.pdf
+│   │   └── 2024-l3-topics-combined-2.pdf
+│   ├── GROBID
+│   │   ├── txt
+│   │   │   ├── Grobid_RR_2024-l1-topics-combined-2.grobid.tei_combined.txt
+│   │   │   ├── Grobid_RR_2024-l2-topics-combined-2.grobid.tei_combined.txt
+│   │   │   └── Grobid_RR_2024-l3-topics-combined-2.grobid.tei_combined.txt
+│   │   └── xml
+│   │       ├── 2024-l1-topics-combined-2.grobid.tei.xml
+│   │       ├── 2024-l1-topics-combined-2_408.txt
+│   │       ├── 2024-l2-topics-combined-2.grobid.tei.xml
+│   │       ├── 2024-l2-topics-combined-2_408.txt
+│   │       ├── 2024-l3-topics-combined-2.grobid.tei.xml
+│   │       └── 2024-l3-topics-combined-2_408.txt
+│   ├── PyPDF
+│   │   ├── PyPDF_RR_2024-l1-topics-combined-2_combined.txt
+│   │   ├── PyPDF_RR_2024-l2-topics-combined-2_combined.txt
+│   │   └── PyPDF_RR_2024-l3-topics-combined-2_combined.txt
+│   ├── Step2_PDF_Extraction.ipynb
+│   ├── requirements.txt
+│   └── scheduler.py
+├── README.md
+└── Webscrape
+    ├── CSV
+    │   └── extracted_updated.csv
+    ├── Step1_Webscrapper.ipynb
+    ├── requirements.txt
+    └── webscrapper_script.py
+```
 
 
 ## Architectural Diagram
 
 
-![Diagram Description](./diagrams/diagram.png)
+![workflow_diagram](https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment2/assets/114356265/cfcb481f-63ed-42ce-a0fc-2a84105eb70f)
 ## How to run Application locally
 
 
@@ -122,7 +146,7 @@ To run the application locally from scratch, follow these steps:
 1. **Clone the Repository**: Clone the repository onto your local machine.
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/BigDataIA-Spring2024-Sec1-Team4/Assignment2
    ```
 
 2. **Create a Virtual Environment**: Set up a virtual environment to isolate project dependencies.
@@ -144,32 +168,28 @@ To run the application locally from scratch, follow these steps:
      ```bash
      source venv/bin/activate
      ```
+     
 4. **Host Grobid Server**: Open Docker Desktop and host the Grobid server.
 
    ```bash
     git clone https://github.com/kermitt2/grobid_client_python
     cd grobid_client_python
     python3 setup.py install
-    docker run -t --rm -p localhost:8070 lfoppiano/grobid:0.8.0
+    docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
    ```
 
-5. **Install Requirements**: Install the required dependencies listed in `requirements.txt`.
+5. **Run the Notebook Script**: Execute the `scheduler.py` python script to run the application.
 
    ```bash
-   pip install -r requirements.txt
-   ```
-
-6. **Run the Notebook Script**: Execute the `run_notebook.sh` shell script to run the application.
-
-   ```bash
-   bash run_notebook.sh
+   cd PDF_Extraction
+   python scheduler.py
    ```
 
 By following these steps, you will be able to run the application locally from scratch. Ensure that Docker Desktop is installed and running before hosting the Grobid server.
 ## Team Information and Contribution 
 
-Name           | Contribution %| Contributions |
----------------|---------------| --- |
-Anirudh Joshi  | 34%           |      |
-Nitant Jatale  | 33%           |      |
-Rutuja More    | 33%           |      |
+Name           | Contribution %| 
+---------------|---------------| 
+Anirudh Joshi  | 34%           | 
+Nitant Jatale  | 33%           | 
+Rutuja More    | 33%           |  
