@@ -176,7 +176,7 @@ To run the application locally from scratch, follow these steps:
     docker run -t --rm -p 8070:8070 lfoppiano/grobid:0.8.0
    ```
 
-5. **Run the Notebook Script**: Execute the `scheduler.py` python script to run the application. (Remember to add your .env files)
+5. **Run the Notebook Script**: Execute the `scheduler.py` python script to run the application. This step automates the process and runs all notebooks one after the other (Remember to add your .env files)
 
    ```bash
    cd PDF_Extraction
