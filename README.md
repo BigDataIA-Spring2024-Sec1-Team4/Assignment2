@@ -185,6 +185,9 @@ To run the application locally from scratch, follow these steps:
 By following these steps, you will be able to run the application locally from scratch. Ensure that Docker Desktop is installed and running before hosting the Grobid server.
 ## Team Information and Contribution 
 
+### GitHub Issues for Change Management
+Utilizing GitHub Issues is essential for tracking modifications, feature requests, and bugs within the project. It serves as a centralized platform for documenting all project-related concerns, allowing for transparent collaboration, prioritization, and assignment of tasks to team members. This practice ensures that the project's progress is cohesive, organized, and accessible to all stakeholders, fostering an environment of open communication and continuous improvement.
+
 Name           | Contribution %| 
 ---------------|---------------| 
 Anirudh Joshi  | 34%           | 
