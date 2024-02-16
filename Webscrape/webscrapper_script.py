@@ -19,7 +19,7 @@ base_urls = [
 ]
 
 # CSV file setup
-csv_file_path = 'extracted_updated.csv'
+csv_file_path = 'CSV/extracted_updated.csv'
 headers = ['Name_of_the_topic', 'Year', 'Level', 'Introduction_Summary', 'Learning_Outcomes', 'Link_to_the_Summary_Page', 'Link_to_the_PDF_File']
 
 def safe_extract_text(soup, selector, attribute=None):
@@ -50,7 +50,7 @@ def scrape_links(html):
 all_links = []
 for base_url in base_urls:
     response = session.get(base_url)
-    response.html.render(wait=10, sleep=10)
+    response.html.render(wait=5, sleep=5)
     all_links.extend(scrape_links(response.html))
 
 # Now process each link and write details to the CSV
